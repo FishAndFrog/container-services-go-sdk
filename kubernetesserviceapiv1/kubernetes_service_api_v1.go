@@ -1,5 +1,5 @@
 /**
- * (C) Copyright IBM Corp. 2021.
+ * (C) Copyright IBM Corp. 2024.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -10408,6 +10408,9 @@ func (kubernetesServiceApi *KubernetesServiceApiV1) CreateSatelliteLocationWithC
 	if createSatelliteLocationOptions.Description != nil {
 		body["description"] = createSatelliteLocationOptions.Description
 	}
+	if createSatelliteLocationOptions.PhysicalAddress != nil {
+		body["physicalAddress"] = createSatelliteLocationOptions.PhysicalAddress
+	}
 	if createSatelliteLocationOptions.Iaas != nil {
 		body["iaas"] = createSatelliteLocationOptions.Iaas
 	}
@@ -20524,6 +20527,9 @@ type CreateSatelliteLocationOptions struct {
 	// A description of the new Satellite location.
 	Description *string
 
+	// An optional physical address of the new Satellite location which is deployed on-premise
+	PhysicalAddress *string
+
 	Iaas *IAAS
 
 	// The IBM Cloud metro from which the Satellite location is managed.
@@ -28454,6 +28460,9 @@ type MultishiftGetController struct {
 	Deployments *Deployments `json:"deployments,omitempty"`
 
 	Description *string `json:"description,omitempty"`
+	
+	// An optional physical address of the new Satellite location which is deployed on-premise
+	PhysicalAddress *string `json:"physicalAddress,omitempty"`
 
 	DisableAutoUpdate *bool `json:"disableAutoUpdate,omitempty"`
 
@@ -28559,6 +28568,10 @@ func UnmarshalMultishiftGetController(m map[string]json.RawMessage, result inter
 	if err != nil {
 		return
 	}
+-       err = core.UnmarshalPrimitive(m, "physicalAddress", &obj.PhysicalAddress)
+-       if err != nil {
+-               return
+-       }
 	err = core.UnmarshalPrimitive(m, "disableAutoUpdate", &obj.DisableAutoUpdate)
 	if err != nil {
 		return
