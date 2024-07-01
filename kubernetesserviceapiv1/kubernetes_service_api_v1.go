@@ -28574,10 +28574,10 @@ func UnmarshalMultishiftGetController(m map[string]json.RawMessage, result inter
 	if err != nil {
 		return
 	}
--       err = core.UnmarshalPrimitive(m, "physicalAddress", &obj.PhysicalAddress)
--       if err != nil {
--               return
--       }
+	err = core.UnmarshalPrimitive(m, "physicalAddress", &obj.PhysicalAddress)
+	if err != nil {
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "disableAutoUpdate", &obj.DisableAutoUpdate)
 	if err != nil {
 		return
