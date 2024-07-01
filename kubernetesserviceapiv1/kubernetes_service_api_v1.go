@@ -28466,7 +28466,7 @@ type MultishiftGetController struct {
 	Deployments *Deployments `json:"deployments,omitempty"`
 
 	Description *string `json:"description,omitempty"`
-	
+
 	// An optional physical address of the new Satellite location which is deployed on-premise
 	PhysicalAddress *string `json:"physicalAddress,omitempty"`
 
