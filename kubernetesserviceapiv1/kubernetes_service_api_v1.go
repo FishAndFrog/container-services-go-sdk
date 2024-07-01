@@ -20588,6 +20588,12 @@ func (options *CreateSatelliteLocationOptions) SetDescription(description string
 	return options
 }
 
+// SetPhysicalAddress : Allow user to set PhysicalAddress
+func (options *CreateSatelliteLocationOptions) SetPhysicalAddress(physicalAddress string) *CreateSatelliteLocationOptions {
+       options.PhysicalAddress = core.StringPtr(physicalAddress)
+       return options
+}
+
 // SetIaas : Allow user to set Iaas
 func (options *CreateSatelliteLocationOptions) SetIaas(iaas *IAAS) *CreateSatelliteLocationOptions {
 	options.Iaas = iaas
